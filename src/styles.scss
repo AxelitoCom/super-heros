@@ -1,8 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
-//noinspection CssUnknownTarget
-@import '~bootstrap/dist/css/bootstrap.css';
-
 /* Importing Bootstrap SCSS file. */
+//noinspection CssUnknownTarget
 @import "./node_modules/bootstrap/scss/bootstrap";
 
 /* Importing Datepicker SCSS file. */
