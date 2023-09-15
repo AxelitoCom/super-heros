@@ -1,10 +1,18 @@
-<carousel [noPause]="false">
-  <slide>
-    <!-- TODO : Image  -->
-    <img src="assets/images/nature/4.jpg" alt="First slide" style="display: block; width: 100%;">
-    <div class="carousel-caption d-none d-md-block">
-      <h3>First slide label</h3>
-      <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+<carousel [noPause]="false" [isAnimated]="true">
+  <slide *ngFor="let hero of heros">
+    <div class="w-100">
+      <img [src]="hero.images.md" [alt]="hero.name" class="slide-image">
+      <div class="carousel-caption">
+        <div class="cartouche">
+          <h4 class="nom btn-link w-auto">
+            {{hero.name}}
+          </h4>
+          <h6 class="description" *ngIf="hero.biography.fullName !== hero.name" [title]="hero.biography.fullName">
+            {{hero.biography.fullName}}
+          </h6>
+        </div>
+      </div>
     </div>
   </slide>
 </carousel>
+

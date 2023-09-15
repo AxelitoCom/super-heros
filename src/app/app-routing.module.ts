@@ -5,6 +5,7 @@ import {AccueilComponent} from './accueil/accueil.component';
 
 const routes: Routes = [
   {path: 'acceuil', component: AccueilComponent},
+  {path: 'tous-les-heros', component: AccueilComponent},
   {path: '**', redirectTo: '/acceuil'}
 ];
 

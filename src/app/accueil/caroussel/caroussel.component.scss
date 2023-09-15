@@ -1,0 +1,32 @@
+.slide-image {
+  max-height: 20rem;
+  width: 100%;
+  border-radius: .5rem;
+}
+
+// contient le titre et une briève description du passe-temps du super héro
+.cartouche {
+  color: gold;
+  text-shadow: white 1px 0 10px;
+  border-radius: .5rem;
+  padding: .5rem;
+
+  .nom:hover {
+    cursor: pointer;
+  }
+
+  // Effet glasmorphism
+  background: rgba(34, 71, 215, 0.25);
+  box-shadow: 0 .5rem 2rem 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(.25rem);
+  -webkit-backdrop-filter: blur(.25rem);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+
+  .description {
+    color: whitesmoke;
+    font-style: italic;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}
