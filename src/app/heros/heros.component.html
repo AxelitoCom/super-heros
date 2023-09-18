@@ -1,0 +1,37 @@
+<div class="row fixed-top">
+  <div class="col-12 text-center">
+    <h1>Les héros</h1>
+  </div>
+  <div class="col-12"></div>
+</div>
+
+<div class="row">
+  <div class="col-2" *ngFor="let hero of herosPagines">
+    <p-card [routerLink]="hero.slug">
+      <ng-template pTemplate="header">
+        <img [alt]="['heros', hero.name]" height="188" width="125" [ngSrc]="hero.images.sm" class="hero-card-image"/>
+
+        <div class="p-2">
+          <!-- Header -->
+          <h4 class="text-ellipsis" [title]="hero.name">{{hero.name}}</h4>
+          <!-- SubHeader -->
+          <h6>{{hero.biography.fullName}}</h6>
+        </div>
+      </ng-template>
+
+
+      <ng-template pTemplate="footer">
+        <!-- Tags -->
+        <div class="row">
+          <app-custom-tag [value]="alignmentEnum.from(hero.biography.alignment).label"
+                          [color]="alignmentEnum.from(hero.biography.alignment).colorHigh"
+                          [bgColor]="alignmentEnum.from(hero.biography.alignment).colorLow">
+            <i class="pi pi-{{hero.biography.alignment === 'good'? 'sun':'moon'}}"></i>
+          </app-custom-tag>
+        </div>
+      </ng-template>
+    </p-card>
+  </div>
+</div>
+
+<p-scrollTop></p-scrollTop>

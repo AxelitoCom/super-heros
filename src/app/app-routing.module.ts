@@ -1,11 +1,10 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
-import {AccueilComponent} from './accueil/accueil.component';
 
 const routes: Routes = [
-  {path: 'acceuil', component: AccueilComponent},
-  {path: 'tous-les-heros', component: AccueilComponent},
+  {path: 'acceuil', loadChildren: () => import('./accueil/accueil.module').then(m => m.AccueilModule)},
+  {path: 'heros', loadChildren: () => import('./heros/heros.module').then(m => m.HerosModule)},
   {path: '**', redirectTo: '/acceuil'}
 ];
 

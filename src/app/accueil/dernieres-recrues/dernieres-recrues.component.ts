@@ -4,12 +4,11 @@ import {Hero} from '../../shared/model/hero';
 import {HttpErrorResponse} from '@angular/common/http';
 
 @Component({
-  selector: 'app-caroussel',
-  templateUrl: './caroussel.component.html',
-  styleUrls: ['./caroussel.component.scss'],
-  //providers: [HerosService]
+  selector: 'app-dernieres-recrues',
+  templateUrl: './dernieres-recrues.component.html',
+  styleUrls: ['./dernieres-recrues.component.scss']
 })
-export class CarousselComponent implements OnInit {
+export class DernieresRecruesComponent implements OnInit {
   private readonly MAX_HERO_ID: number = 731;
   private readonly MAX_NEWS: number = 5;
   private readonly MIN_NEWS: number = 3;
@@ -22,29 +21,31 @@ export class CarousselComponent implements OnInit {
 
 
   ngOnInit(): void {
+    // Détermine aléatoirement le nombre de denières recrues
     this.nbOfNews = this.randomNumber(this.MAX_NEWS, this.MIN_NEWS);
-    this.getRandomHeros();
+    // Récupère X héros aléatoires (avex )
+    this.getRandomHeros(this.nbOfNews);
   }
 
   /**
    * Récupèr aléatoirement 4 super héros (pour simuler les derniers ajouts)
    * @private
    */
-  private getRandomHeros(): void {
+  private getRandomHeros(nbOfHeros: number): void {
     const randomId = this.getRandomHeroUniqueId(this.MAX_HERO_ID);
     this.herosService.getById(randomId).subscribe({
       // On ajoute le super héro à la collection et on rappell la méthode s'il en manque
       next: hero => {
         this.heros.push(hero);
-        if (this.heros.length < this.nbOfNews) {
-          this.getRandomHeros();
+        if (this.heros.length < nbOfHeros) {
+          this.getRandomHeros(nbOfHeros);
         }
       },
       // On n'a pas réussi à récupérer le super héro
       error: (err: HttpErrorResponse) => {
         if (err.status === 404) {
           // Héro non trouvé => on va en chercher un autre ;)
-          this.getRandomHeros();
+          this.getRandomHeros(nbOfHeros);
         } else {
           console.error(err);
         }

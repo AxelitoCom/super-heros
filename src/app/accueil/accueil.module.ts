@@ -1,21 +1,29 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {AccueilComponent} from './accueil.component';
-import {CarousselComponent} from './caroussel/caroussel.component';
 import {CarouselModule} from 'ngx-bootstrap/carousel';
-import {RouterLink} from '@angular/router';
+import {RouterLink, RouterModule, Routes} from '@angular/router';
+import {DernieresRecruesComponent} from './dernieres-recrues/dernieres-recrues.component';
+
+const routes: Routes = [
+  {
+    path: '',
+    component: AccueilComponent
+  }
+];
 
 
 @NgModule({
   declarations: [
     AccueilComponent,
-    CarousselComponent
+    DernieresRecruesComponent
   ],
-    imports: [
-        CommonModule,
-        CarouselModule,
-        RouterLink
-    ]
+  imports: [
+    CommonModule,
+    CarouselModule,
+    RouterLink,
+    RouterModule.forChild(routes)
+  ]
 })
 
 export class AccueilModule {

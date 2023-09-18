@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CarousselComponent } from './caroussel.component';
+import { CustomTagComponent } from './custom-tag.component';
 
-describe('CarousselComponent', () => {
-  let component: CarousselComponent;
-  let fixture: ComponentFixture<CarousselComponent>;
+describe('CustomTagComponent', () => {
+  let component: CustomTagComponent;
+  let fixture: ComponentFixture<CustomTagComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [CarousselComponent]
+      declarations: [CustomTagComponent]
     });
-    fixture = TestBed.createComponent(CarousselComponent);
+    fixture = TestBed.createComponent(CustomTagComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
