@@ -4,6 +4,7 @@ import {AccueilComponent} from './accueil.component';
 import {CarouselModule} from 'ngx-bootstrap/carousel';
 import {RouterLink, RouterModule, Routes} from '@angular/router';
 import {DernieresRecruesComponent} from './dernieres-recrues/dernieres-recrues.component';
+import {ButtonModule} from 'primeng/button';
 
 const routes: Routes = [
   {
@@ -22,7 +23,8 @@ const routes: Routes = [
     CommonModule,
     CarouselModule,
     RouterLink,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    ButtonModule
   ]
 })
 

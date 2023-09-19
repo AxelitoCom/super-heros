@@ -1,15 +1,16 @@
-<div class="row fixed-top">
+<div class="row fixed-top nav-bar">
   <div class="col-12 text-center">
     <h1>Les héros</h1>
+    <p-breadcrumb class="max-w-full" styleClass="bg-dark" [model]="menu" [home]="accueil"></p-breadcrumb>
   </div>
-  <div class="col-12"></div>
 </div>
 
-<div class="row">
-  <div class="col-2" *ngFor="let hero of herosPagines">
+<div class="row mt-5 pt-5">
+  <div class="col-6 col-sm-4 col-md-3 col-lg-2 carte-hero" *ngFor="let hero of herosPagines">
     <p-card [routerLink]="hero.slug">
       <ng-template pTemplate="header">
-        <img [alt]="['heros', hero.name]" height="188" width="125" [ngSrc]="hero.images.sm" class="hero-card-image"/>
+        <img [alt]="['heros', hero.name]" height="280" width="160" priority="" [ngSrc]="hero.images.sm"
+             class="hero-card-image"/>
 
         <div class="p-2">
           <!-- Header -->
@@ -23,15 +24,20 @@
       <ng-template pTemplate="footer">
         <!-- Tags -->
         <div class="row">
-          <app-custom-tag [value]="alignmentEnum.from(hero.biography.alignment).label"
-                          [color]="alignmentEnum.from(hero.biography.alignment).colorHigh"
-                          [bgColor]="alignmentEnum.from(hero.biography.alignment).colorLow">
+          <app-custom-tag [value]="alignmentEnum.from(hero?.biography.alignment)?.label"
+                          [color]="alignmentEnum.from(hero?.biography.alignment)?.colorHigh"
+                          [bgColor]="alignmentEnum.from(hero?.biography.alignment)?.colorLow">
             <i class="pi pi-{{hero.biography.alignment === 'good'? 'sun':'moon'}}"></i>
           </app-custom-tag>
         </div>
       </ng-template>
     </p-card>
   </div>
+
+<!--  <p-paginator (onPageChange)="onPageChange($event)"-->
+<!--               [first]="first"-->
+<!--               [rows]="rows"-->
+<!--               [totalRecords]="120"-->
+<!--               [rowsPerPageOptions]="[10, 20, 30]"></p-paginator>-->
 </div>
 
-<p-scrollTop></p-scrollTop>

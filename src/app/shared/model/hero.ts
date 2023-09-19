@@ -7,14 +7,14 @@ export interface Hero {
   name: string;
   slug: string;
   powerstats: Record<PowerStatCode, number>;
-  apparence: Apparence;
+  appearance: Appearance;
   biography: Biography;
   work: Work;
   connections: Connections;
   images: Record<ImageSize, string>;
 }
 
-export interface Apparence {
+export interface Appearance {
   gender: string;
   race: string;
   height: string[];

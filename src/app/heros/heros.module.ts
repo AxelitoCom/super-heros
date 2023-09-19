@@ -9,6 +9,11 @@ import {ScrollTopModule} from 'primeng/scrolltop';
 import {HeroComponent} from './hero/hero.component';
 import {CustomTagComponent} from '../shared/standalone-components/custom-tag/custom-tag.component';
 import {HeroContextService} from './hero-context.service';
+import {AliasesPipe} from '../shared/pipes/aliases.pipe';
+import {BreadcrumbModule} from 'primeng/breadcrumb';
+import {PaginatorModule} from 'primeng/paginator';
+import {FieldsetModule} from 'primeng/fieldset';
+import {BilleComponent} from '../shared/standalone-components/bille/bille.component';
 
 const routes: Routes = [
   {
@@ -34,7 +39,12 @@ const routes: Routes = [
     ButtonModule,
     NgOptimizedImage,
     ScrollTopModule,
-    CustomTagComponent
+    CustomTagComponent,
+    AliasesPipe,
+    BreadcrumbModule,
+    PaginatorModule,
+    FieldsetModule,
+    BilleComponent
   ],
   providers: [HeroContextService]
 })

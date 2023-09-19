@@ -1,24 +1,27 @@
 <div class="row vh-100">
-    <div class="col-12 col-sm-6 row text-center align-items-center">
-      <h1 class="col-12">
-        Adopte un Super Héro
-      </h1>
-      <div class="col-12">
-        Vous faites face à un problème ?
+  <div class="col-12 col-sm-6 row text-center align-items-center">
+    <h1 class="d-block">Adopte un Super Héro</h1>
+    <div>
+      <h4>
+        Un problème compliqué ?
         <br>
         Besoin de gros bras pour un déménagement ?
         <br>
         Ne cherchez plus !
         <br>
-        Faites vous accompagner par un super héro en choisissant celui qui vous correspond
-      </div>
+        Faites vous accompagner par un super héro en choisissant celui qui vous correspond.
+        On vous aide 😉
+      </h4>
     </div>
+    <div>
+      <p-button routerLink="/heros" label="Trouver mon super héro"></p-button>
+    </div>
+  </div>
 
-    <div class="col-12 col-sm-6 text-center row align-items-center">
-      <div class="col-12 p-0">
-        <app-dernieres-recrues></app-dernieres-recrues>
-        <h6 class="fst-italic">Dernières recrues</h6>
-        <a routerLink="/heros">Voir tout</a>
-      </div>
+  <div class="col-12 col-sm-6 text-center row align-items-center">
+    <div class="col-12 p-0">
+      <h5 class="fst-italic">Dernières recrues</h5>
+      <app-dernieres-recrues></app-dernieres-recrues>
     </div>
+  </div>
 </div>

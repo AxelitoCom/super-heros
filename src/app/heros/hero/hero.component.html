@@ -1,6 +1,83 @@
-<div class="row">
-  <div class="col-5">
-    <img [alt]="hero.name" [src]="hero?.images.lg">
+<div class="vh-100 vw-100" *ngIf="hero; else spinnerTemplate">
+  <div class="row nav-bar">
+    <div class="col-12 text-center bg-dark">
+      <h1>{{hero.name}}</h1>
+      <h4 class="fst-italic">Alias : {{hero.biography.aliases | aliases}}</h4>
+      <p-breadcrumb class="max-w-full" styleClass="bg-dark toto" [model]="menu" [home]="accueil"></p-breadcrumb>
+    </div>
   </div>
-  <div class="col-7"></div>
+
+  <div class="row">
+    <div class="col-5 d-flex justify-content-end p-0">
+      <!--suppress HtmlUnknownBooleanAttribute (priority) -->
+      <img *ngIf="hero; else spinnerTemplate"
+           [alt]="hero.name"
+           width="480"
+           height="640"
+           priority
+           [ngSrc]="hero?.images.lg">
+    </div>
+
+    <div class="col-7 border bg-dark">
+
+      <!-- APPARENCE -->
+      <p-fieldset legend="Comment le reconnaître ?" [toggleable]="true">
+        <div><h6 class="d-inline-block">Genre</h6> : {{hero.appearance.gender}}</div>
+        <div *ngIf="hero.appearance.race"><h6 class="d-inline-block">Race</h6> : {{hero.appearance.race}}</div>
+        <div><h6 class="d-inline-block">Hauteur</h6> : {{hero.appearance.height[1]}} ({{hero.appearance.height[0]}})
+        </div>
+        <div><h6 class="d-inline-block">Largeur des épaules</h6> : {{hero.appearance.weight[1]}}
+          ({{hero.appearance.weight[0]}})
+        </div>
+        <div>
+          <h6 class="d-inline-block">Couleur des yeux</h6> :
+          <app-bille [color]="hero.appearance.eyeColor"></app-bille>
+        </div>
+      </p-fieldset>
+
+      <div class="mt-3"></div>
+
+      <!-- TRAVAIL -->
+      <p-fieldset legend="Ce qu'il fait" [toggleable]="true">
+        <div *ngIf="hero.work.base !== '-'">
+          <h6 class="d-inline-block">Travail</h6> : {{hero.work.base}}
+        </div>
+        <div><h6 class="d-inline-block">Hobbies</h6> : {{hero.work.occupation}}</div>
+      </p-fieldset>
+
+      <div class="mt-3"></div>
+
+      <!-- BIOGRAPHIE -->
+      <p-fieldset legend="Son histoire" [toggleable]="true">
+        <div>
+          <h6 class="d-inline-block">Equipe</h6> :
+          <app-custom-tag [value]="alignmentEnum.from(hero?.biography.alignment)?.label"
+                          [color]="alignmentEnum.from(hero?.biography.alignment)?.colorHigh"
+                          [bgColor]="alignmentEnum.from(hero?.biography.alignment)?.colorLow">
+            <i class="pi pi-{{hero.biography.alignment === 'good'? 'sun':'moon'}}"></i>
+          </app-custom-tag>
+        </div>
+
+        <div><h6 class="d-inline-block">Nom complet</h6> : {{hero.biography.fullName}}</div>
+        <div><h6 class="d-inline-block">Compagnon de confiance</h6> : {{hero.biography.alterEgos}}</div>
+        <div *ngIf="hero.biography.placeOfBirth !== '-'">
+          <h6 class="d-inline-block">Lieu de naissance</h6> : {{hero.biography.placeOfBirth}}
+        </div>
+        <div><h6 class="d-inline-block">Apparence d'origine</h6> : {{hero.biography.firstAppearance}}</div>
+        <div><h6 class="d-inline-block">Publié par</h6> : {{hero.biography.publisher}}</div>
+      </p-fieldset>
+
+
+      <div class="mt-3"></div>
+
+      <!-- Scores -->
+      <p-fieldset legend="Caractéristiques de puissance" [toggleable]="true">
+        <!-- KNOB -->
+      </p-fieldset>
+    </div>
+  </div>
 </div>
+
+<ng-template #spinnerTemplate>
+  <i class="pi pi-spin pi-spinner text-white spinner"></i>
+</ng-template>

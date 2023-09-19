@@ -6,17 +6,19 @@ import {AppRoutingModule} from './app-routing.module';
 import {AccueilModule} from './accueil/accueil.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpClientModule} from '@angular/common/http';
+import {ScrollTopModule} from 'primeng/scrolltop';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AccueilModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    ScrollTopModule
   ],
   providers: [],
   bootstrap: [AppComponent]

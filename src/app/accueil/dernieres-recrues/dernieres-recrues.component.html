@@ -4,7 +4,7 @@
       <img [src]="hero.images.lg" [alt]="hero.name" class="slide-image">
       <div class="carousel-caption">
         <div class="cartouche">
-          <h4 class="nom btn-link w-auto">
+          <h4 class="nom w-auto" [routerLink]="['heros', hero.slug]">
             {{hero.name}}
           </h4>
           <h6 class="description" *ngIf="hero.biography.fullName !== hero.name" [title]="hero.biography.fullName">
