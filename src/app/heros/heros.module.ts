@@ -14,6 +14,8 @@ import {BreadcrumbModule} from 'primeng/breadcrumb';
 import {PaginatorModule} from 'primeng/paginator';
 import {FieldsetModule} from 'primeng/fieldset';
 import {BilleComponent} from '../shared/standalone-components/bille/bille.component';
+import {KnobModule} from 'primeng/knob';
+import {DialogModule} from 'primeng/dialog';
 
 const routes: Routes = [
   {
@@ -44,7 +46,9 @@ const routes: Routes = [
     BreadcrumbModule,
     PaginatorModule,
     FieldsetModule,
-    BilleComponent
+    BilleComponent,
+    KnobModule,
+    DialogModule
   ],
   providers: [HeroContextService]
 })

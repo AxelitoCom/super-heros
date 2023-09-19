@@ -5,16 +5,26 @@
   </div>
 </div>
 
-<div class="row mt-5 pt-5">
+<div class="row mt-5 p-5">
   <div class="col-6 col-sm-4 col-md-3 col-lg-2 carte-hero" *ngFor="let hero of herosPagines">
     <p-card [routerLink]="hero.slug">
       <ng-template pTemplate="header">
-        <img [alt]="['heros', hero.name]" height="280" width="160" priority="" [ngSrc]="hero.images.sm"
-             class="hero-card-image"/>
+        <div class="position-relative">
+          <!--suppress HtmlUnknownBooleanAttribute (priority) -->
+          <img [alt]="['heros', hero.name]"
+               height="280"
+               width="160"
+               priority
+               [ngSrc]="hero.images.sm"
+               class="hero-card-image"/>
+
+          <div class="numero-hero">#{{hero.id}}</div>
+        </div>
 
         <div class="p-2">
           <!-- Header -->
           <h4 class="text-ellipsis" [title]="hero.name">{{hero.name}}</h4>
+
           <!-- SubHeader -->
           <h6>{{hero.biography.fullName}}</h6>
         </div>
@@ -34,10 +44,14 @@
     </p-card>
   </div>
 
-<!--  <p-paginator (onPageChange)="onPageChange($event)"-->
-<!--               [first]="first"-->
-<!--               [rows]="rows"-->
-<!--               [totalRecords]="120"-->
-<!--               [rowsPerPageOptions]="[10, 20, 30]"></p-paginator>-->
+
+  <div class="paginator">
+    <p-paginator (onPageChange)="paginer($event)"
+                 styleClass="bg-transparent"
+                 [first]="0"
+                 [rows]="nbParLigne"
+                 [totalRecords]="nbLignes"
+                 [rowsPerPageOptions]="[20, 50, 80]"></p-paginator>
+  </div>
 </div>
 

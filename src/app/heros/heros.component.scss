@@ -10,9 +10,27 @@
 .carte-hero {
   padding: .5rem;
   transition: all .2s ease-in-out;
+  position: relative;
 
   &:hover {
     cursor: pointer;
     transform: scale(1.1);
   }
+
+  .numero-hero {
+    position: absolute;
+    font-size: 1.25rem;
+    bottom: 1rem;
+    right: 1rem;
+    color: white;
+    text-shadow: black 1px 0 10px;
+  }
+}
+
+.paginator {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #212529;
 }

@@ -10,14 +10,14 @@ export enum PowerStatCode {
 // Ceci est l'enum pattern
 // On crée une classe pour avoir une enum enrichie comme en Java par exemple
 export class PowerStat {
-  static readonly INTELLIGENCE = new PowerStat(PowerStatCode.INTELLIGENCE, 'Intelligence');
-  static readonly STRENGTH = new PowerStat(PowerStatCode.STRENGTH, 'Force');
-  static readonly SPEED = new PowerStat(PowerStatCode.SPEED, 'Vitesse');
-  static readonly DURABILITY = new PowerStat(PowerStatCode.DURABILITY, 'Endurance');
-  static readonly POWER = new PowerStat(PowerStatCode.POWER, 'Puissance');
-  static readonly COMBAT = new PowerStat(PowerStatCode.COMBAT, 'Combat');
+  static readonly INTELLIGENCE = new PowerStat(PowerStatCode.INTELLIGENCE, 'Intelligence', '#4287f5');
+  static readonly STRENGTH = new PowerStat(PowerStatCode.STRENGTH, 'Force', '#f5424e');
+  static readonly SPEED = new PowerStat(PowerStatCode.SPEED, 'Vitesse', '#42daf5');
+  static readonly DURABILITY = new PowerStat(PowerStatCode.DURABILITY, 'Endurance', '#42f542');
+  static readonly POWER = new PowerStat(PowerStatCode.POWER, 'Puissance', '#eff542');
+  static readonly COMBAT = new PowerStat(PowerStatCode.COMBAT, 'Combat', '#d142f5');
 
-  constructor(public code: PowerStatCode, public label: string) {
+  constructor(public code: PowerStatCode, public label: string, public color: string) {
   }
 
   static all(): PowerStat[] {
