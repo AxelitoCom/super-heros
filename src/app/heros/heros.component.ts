@@ -19,7 +19,7 @@ export class HerosComponent implements OnInit, OnDestroy {
   menu: MenuItem[] = [{label: 'Tous les héros'}];
   accueil: MenuItem = {icon: 'pi pi-home', routerLink: '/'};
   nbLignes: number;
-  nbParLigne: number = 20;
+  nbParLigne: number = 30;
   // Enums
   alignmentEnum = Alignement;
 
@@ -34,14 +34,14 @@ export class HerosComponent implements OnInit, OnDestroy {
     this.subscription = this.herosContextService.observeStore().subscribe(heros => {
       this.heros = heros;
       this.nbLignes = heros.length;
-      this.paginer({page: 1, rows: this.nbParLigne});
+      this.paginer({page: 0, rows: this.nbParLigne, first: 0});
     });
   }
 
   paginer(pageEvent: PaginatorState): void {
-    console.log(pageEvent);
+    const page = pageEvent.page + 1;
     this.nbParLigne = pageEvent.rows;
-    this.herosPagines = this.heros.slice(pageEvent.rows * pageEvent.page - pageEvent.rows, pageEvent.rows * pageEvent.page);
+    this.herosPagines = this.heros.slice(pageEvent.rows * page - pageEvent.rows, pageEvent.rows * page);
   }
 
   ngOnDestroy(): void {

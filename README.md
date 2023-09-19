@@ -2,9 +2,12 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.1.
 
-## Development server
+## Comment faire tourner
+* Prérequis : INstaller NodeJs
+* Cloner le projet
+* lancer avec `npm start`
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+<em>Si la page du navigateur ne s'ouvre pas utomatiquement, aller sur http://localhost:4200/ </em>
 
 ## Code scaffolding
 
